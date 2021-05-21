@@ -21,7 +21,7 @@ function validateDate($date, $format = 'Y-m-d H:i:s')
 }
 ```
 
-Output
+Example outputs:
 
 ```php
 var_dump(validateDate(null)); # false
