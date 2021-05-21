@@ -1,15 +1,10 @@
 # Validate date format in (PHP 5 >= 5.3.0, PHP 7, PHP 8)
 
 ```php
-# Enable strict_types in PHP >= 7.0
-//declare(strict_types=1);
-
 /**
  * Correctly determine if date string is a valid date in that format.
  * Compatible with PHP >= 5.3.0, also valid in PHP 7 and PHP 8 with strict_types = 1.
- * @see https://3v4l.org/8knDn Output
  * @see https://www.php.net/manual/es/datetime.createfromformat.php#refsect1-datetime.createfromformat-parameters Parameters supported in the format
- * @see https://www.php.net/manual/es/function.checkdate.php#113205 based on this answer
  * @param string $date
  * @param string $format
  * @return bool
@@ -22,6 +17,16 @@ function validateDate($date, $format = 'Y-m-d H:i:s')
 ```
 In php 8 it would look like this:
 ```php
+declare(strict_types=1);
+
+/**
+ * Correctly determine if date string is a valid date in that format.
+ * Compatible with PHP >= 5.3.0, also valid in PHP 7 and PHP 8 with strict_types = 1.
+ * @see https://www.php.net/manual/es/datetime.createfromformat.php#refsect1-datetime.createfromformat-parameters Parameters supported in the format
+ * @param string $date
+ * @param string $format
+ * @return bool
+ */
 function validateDate(string $date, string $format = 'Y-m-d H:i:s'): bool
 {
     $d = DateTime::createFromFormat($format, $date);
